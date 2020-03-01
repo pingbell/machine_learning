@@ -16,5 +16,5 @@ print (stats.ttest_1samp(sample,mean))
 
 statistics,pvalue=(stats.ttest_1samp(sample,mean))
 
-print("pvalue="+str(pvalue))
+
 print("pvalue="+str(pvalue))
