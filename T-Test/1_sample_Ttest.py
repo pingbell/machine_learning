@@ -2,7 +2,7 @@
 """
 Created on Sun Mar  1 17:24:32 2020
 
-@author: HP
+@author: Shaurya Prakash
 """
 
 from scipy import stats 
