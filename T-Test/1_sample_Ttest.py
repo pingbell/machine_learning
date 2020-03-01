@@ -5,7 +5,7 @@ Created on Sun Mar  1 17:24:32 2018
 """
 
 from scipy import stats
-
+import numpy as np
 # given data 
 mean = 12
 sample =[10,12,20,21,24,18,8]
