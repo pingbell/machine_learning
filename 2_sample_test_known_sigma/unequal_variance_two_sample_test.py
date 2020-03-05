@@ -35,26 +35,34 @@ sample2=[3.71,4.09,4.11,3.75,3.49,3.27,3.72,3.49,4.26]
 s1_square = np.var(sample1)
 s2_square = np.var(sample2)
 
-"""Predefined methods"""
-print(stats.t.ppf(0.025,11))
-print(stats.ttest_ind(sample1,sample2,equal_var=False))
-
-"""Predfined Methods End Here """
-
-""" User Defined"""
-def is_pooling(s1_square,s2_square) :
+def accept_or_reject(alpha,zscore) :
+    if ((stats.t.ppf(alpha,12)>zscore) | (stats.t.ppf((1-alpha),12)<zscore)):
+       return "reject Ho"
+    else :
+       return "Accept Ho"
+        
+def is_pooling_required(s1_square,s2_square) :
     if ((s1_square>4*s2_square) | (4*s1_square<s2_square)) :
         return False
     else :
         return True 
-print("Pooling is required ={}".format(is_pooling(s1_square,s2_square)))
-
-def zscore(sample1,sample2):
-    zscore =  (np.mean(sample1)-np.mean(sample2) )/(np.sqrt((s1_square/n1)+(s2_square/n2)))
+    
+def dof(sample1,sample2):
     degree_of_freedom = (((s1_square/n1)+(s2_square/n2))**2)/(((s1_square/n1)**2)/(n1-1)+((s2_square/n2)**2)/(n2-1))
-    return (zscore,np.floor(degree_of_freedom))
+    return np.floor(degree_of_freedom)
 
-print(zscore(sample1,sample2))
-""" User Defied nds Here """
+zscore =stats.ttest_ind(sample1,sample2,equal_var=False)[0]
+pvalue=stats.ttest_ind(sample1,sample2,equal_var=False)[1]
+zalpha_left = stats.t.ppf(0.025,11)
+zalpha_right = stats.t.ppf(1-0.025,11)
+print("Pooling is required ={}".format(is_pooling(s1_square,s2_square)))
+print("zscore = {}".format(zscore))
+print("pvalue = {}".format(pvalue))
+print("zalpha_left = {}".format(zalpha_left))
+print("zalpha_right = {}".format(zalpha_right))
+print(accept_or_reject(alpha,zscore) )
+
+
+
 
 
