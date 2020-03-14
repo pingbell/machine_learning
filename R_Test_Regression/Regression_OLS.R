@@ -24,5 +24,7 @@ summary(model_linear)
  ssr = sst-sse
  
  Fscore = (ssr/sse)*(35-2) 
+
+#Fscore for 1,n-2 degree of freedom will decide the fate of hypothesis , here it seems null hypothsis will get rejected as F value is too large.
   
  
