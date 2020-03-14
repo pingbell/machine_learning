@@ -7,10 +7,15 @@ data1 <- read.delim("C:\\Users\\HP\\Desktop\\Data_science_for_engineers\\bonds.t
 model_linear = lm(data1$BidPrice~data1$CouponRate)
 
 #plot graph
-eruption = rstandard(model_linear$fitted.values)
+#standardized residuals on graph
+eruption = rstandard(model_linear$fitted.values) 
+#plot data points
 plot(data1$BidPrice, eruption, ylab="Standardized Residuals",xlab="Waiting Time",main="Old Faithful Eruptions") 
- 
+
+#draw line about zero on y-axis
 abline(0,0)
+
+
 #summary of model
 
 summary(model_linear)
@@ -24,5 +29,6 @@ summary(model_linear)
  ssr = sst-sse
  
  Fscore = (ssr/sse)*(35-2) 
+ 
   
  
