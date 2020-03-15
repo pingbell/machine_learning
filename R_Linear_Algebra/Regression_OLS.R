@@ -1,7 +1,7 @@
 
 
 # read data from file
-data1 <- read.delim("C:\\Users\\HP\\Desktop\\Data_science_for_engineers\\bonds.txt",row.names = 1)
+data1 <- read.delim("bonds.txt",row.names = 1)
 
 # create model
 model_linear = lm(data1$BidPrice~data1$CouponRate)
