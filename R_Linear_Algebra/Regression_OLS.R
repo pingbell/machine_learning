@@ -1,7 +1,7 @@
 
 
 # read data from file
-data1 <- read.delim("C:\\Users\\HP\\Desktop\\Data_science_for_engineers\\bonds.txt",row.names = 1)
+data1 <- read.delim("bonds.txt",row.names = 1)
 
 # create model
 model_linear = lm(data1$BidPrice~data1$CouponRate)
@@ -29,11 +29,9 @@ summary(model_linear)
  ssr = sst-sse
  
  Fscore = (ssr/sse)*(35-2) 
-<<<<<<< HEAD
- 
-=======
+
 
 #Fscore for 1,n-2 degree of freedom will decide the fate of hypothesis , here it seems null hypothsis will get rejected as F value is too large.
->>>>>>> 6e9155697ac0f910231f666a7b892a153550d64d
+
   
  
