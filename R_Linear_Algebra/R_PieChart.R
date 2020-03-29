@@ -13,7 +13,7 @@ pie3D(data,
       labels = c("earining","expenditure","savings"),
       explode=.1,
       col=c("red","green","pink"),
-)
+) 
 
 
 #pie3d table(data)
