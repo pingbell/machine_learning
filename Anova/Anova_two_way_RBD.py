@@ -4,14 +4,15 @@ Created on Wed Apr  1 17:46:49 2020
 
 @author: shauyra prakash
 """
-import pandas as np
-from statsmodels.formula.api import ols
-from scipy import stats
-import statsmodels.api as sm 
+import statsmodels.api as sm
+import statsmodels.formula.api as stats
+from scipy import stats as scstats
+import pandas as pd
+data = pd.read_excel("C:\\Users\\HP\\Desktop\\data_analytics_with_python\\Important_Data\\Twoway.xlsx")
 
-data = pd.read_excel("C:Users/HP/Desktop/data_analytics_with_python/oneway.xlsx")
-print(data.columns)
-data_new = pd.melt(data.reset_index(),id_vars=["index"],value_vars=['Black Board ', 'Case Presentation  ', 'PPT '])
-data_new.columns = ["Block","Treatments","value"]
-model = ols("value ~C(Treatments) +C(Block)",data= data_new).fit()
-anova_table = sm.stats.anova_lm(model,typ=1)
+model =ols("Value~C(college)+C(prep_pro)+C(college):C(prep_pro)",data=data).fit()
+anova_table=sm.stats.anova_lm(model,typ=2)
+print(scstats.f.ppf(.95,2,9))
+ 
+ 
+
