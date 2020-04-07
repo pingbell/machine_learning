@@ -27,5 +27,10 @@ model = sm.ols("value~C(Treatment)",data=data_new).fit()
 anova= an.stats.anova_lm(model,typ=1)
 f = stats.f.ppf(.95,2,6)
 """ accept null hypothesis"""
+"""ONEWAY ANOVA"""
+ 
+model1 = sm.ols("value~C(Treatment)+C(index)",data=data_new).fit()
+anova1= an.stats.anova_lm(model1,typ=1)
+ 
 
 

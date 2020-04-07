@@ -41,7 +41,7 @@ anova_table = sm.stats.anova_lm(model,typ=1)
 #LSD Test
 MSE =6.508333333333333
 
-t_alpha_by_2_dof_20=statistics.t.ppf(.005,20) """alpha/2 in argument"""
+t_alpha_by_2_dof_20=statistics.t.ppf(.005,20) 
 n=6
 LSD =np.abs( t_alpha_by_2_dof_20*np.sqrt(2*MSE/n))
 print(LSD)
