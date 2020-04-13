@@ -41,7 +41,7 @@ mean2=np.mean(data2)
 std1 = np.std(data1)
 std2 = np.std(data2)
 
-dof =  ((std1**2/8) + (std2**2/8))**2/((std1**2/8)**2)/7 + ((std2**2/8)**2)/7
+dof =  ((std1**2/8) + (std2**2/8))**2/(((std1**2/8)**2)/7 + ((std2**2/8)**2)/7)
 
 Z = (mean1-mean2)/np.sqrt( ((std1**2/8) + (std2**2/8)))
 zritical_upper = st.t.ppf(.975,dof)
