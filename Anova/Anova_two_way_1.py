@@ -15,4 +15,4 @@ data = pd.read_excel("C:\\Users\\HP\\Desktop\\data_analytics_with_python\\Import
 model=st.ols("Value~C(college)+C(prep_pro)+C(college):C(prep_pro)",data=data).fit()
 anova_table = sm.stats.anova_lm(model,typ=2)
 
-t_critical = stats.t.ppf(.0025,15)*-1
+ 
